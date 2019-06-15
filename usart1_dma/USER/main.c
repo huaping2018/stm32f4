@@ -133,7 +133,8 @@ int main(void)
 	
 			//printf("rx buf: %s\r\n", rx_buffer);
 			DMA_Configuration_TX(); // start a transmission by the DMA.
-			DMA_ClearFlag(DMA2_Stream2,DMA_FLAG_TCIF2 | DMA_FLAG_HTIF2);
+			//DMA_ClearFlag(DMA2_Stream2,DMA_FLAG_TCIF2 | DMA_FLAG_HTIF2);
+			DMA_ClearFlag(DMA2_Stream2,DMA_FLAG_TCIF2 | DMA_FLAG_FEIF2 | DMA_FLAG_DMEIF2 | DMA_FLAG_TEIF2 | DMA_FLAG_HTIF2); //清除DMA2_Steam2传输完成标志
 			DMA_Configuration_RX();
 		}
 	}
